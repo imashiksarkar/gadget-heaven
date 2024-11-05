@@ -17,6 +17,16 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+        loader: ({ request, context }) => {
+          const searchParams = new URL(request.url).searchParams
+          const selectedCategory = searchParams.get('category')?.trim() || 'all'
+
+          // if(selectedCategory==='all') return redirect('/')
+          // context={a:'aaa'}
+          console.log(context)
+
+          return { selectedCategory }
+        },
       },
       {
         path: '/statistics',

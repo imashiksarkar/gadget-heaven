@@ -5,7 +5,7 @@ import CartItem from './CartItem'
 const Cart = () => {
   return (
     <section>
-      <div className='con py-12'>
+      <div className='con py-8'>
         <header className='flex flex-col md:flex-row gap-6 items-center text-xl font-bold'>
           <h1 className='grow'>Cart</h1>
           <h2>Total cost: 999.99</h2>
@@ -31,7 +31,7 @@ const Cart = () => {
         </header>
       </div>
 
-      <div className='con py-8'>
+      <div className='con'>
         <ul className='flex flex-col items-center gap-4'>
           <li className='w-full flex justify-center'>
             <CartItem />

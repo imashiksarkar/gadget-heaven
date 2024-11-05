@@ -3,13 +3,13 @@ import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 
 const categories = [
+  'All Product',
   'Iphone',
   'MacBook',
   'Smart Watches',
   'Accessories',
   'Phones',
   'Laptops',
-  'All Product',
 ]
 
 const product: ProductCardProps = {
@@ -62,7 +62,7 @@ const Home = () => {
                 return (
                   <li key={categoryVal} className=''>
                     <Link
-                      to={`?category=${categoryVal}`}
+                      to={`/?category=${categoryVal}`}
                       className='bg-[#F3F3F3] block py-2 px-4 rounded-full mt-4 text-lg font-medium text-[#67666A]'
                     >
                       {category}
