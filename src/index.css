@@ -70,7 +70,7 @@
 
 @layer components {
   body {
-    @apply h-dvh;
+    @apply h-dvh bg-[#F6F6F6];
 
     #root {
       @apply h-full flex flex-col;
