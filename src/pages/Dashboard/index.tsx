@@ -1,8 +1,11 @@
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 
 const Dashboard = () => {
+  const location = useLocation()
+  const path = location.pathname === '/dashboard/cart' ? 'cart' : 'wishlist'
+
   return (
-    <section >
+    <section>
       <header className='bg-[#9538E2] py-8'>
         <div className='con flex flex-col items-center text-white'>
           <h1 className='text-3xl font-bold'>Dashboard</h1>
@@ -16,7 +19,7 @@ const Dashboard = () => {
             <li>
               <Link
                 to={'/dashboard/cart'}
-                className='px-6 py-2 rounded-full bg-white text-[#9538E2] text-lg font-extrabold'
+                className={path === 'cart' ? 'cta-btn active' : 'cta-btn'}
               >
                 Cart
               </Link>
@@ -24,7 +27,7 @@ const Dashboard = () => {
             <li>
               <Link
                 to={'/dashboard/wishlist'}
-                className='px-6 py-2 rounded-full border-2 text-white text-lg font-semibold'
+                className={path === 'wishlist' ? 'cta-btn active' : 'cta-btn'}
               >
                 Wishlist
               </Link>

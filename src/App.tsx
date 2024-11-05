@@ -1,12 +1,12 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
+import Cart from './components/Cart'
+import Wishlist from './components/Wishlist'
 import RootLayout from './layouts/RootLayout'
 import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
-import Statistics from './pages/Statistics'
 import Order from './pages/Order'
-import Cart from './components/Cart'
-import Wishlist from './components/Wishlist'
+import Statistics from './pages/Statistics'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <Dashboard />,
         children: [
+          {
+            path: '/dashboard',
+            element: <Navigate to={'/dashboard/cart'} />,
+          },
           {
             path: '/dashboard/cart',
             element: <Cart />,
