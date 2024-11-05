@@ -69,6 +69,17 @@
 }
 
 @layer components {
+  body {
+    @apply h-dvh;
+
+    #root {
+      @apply h-full flex flex-col;
+
+      main {
+        @apply grow;
+      }
+    }
+  }
   .con {
     @apply container mx-auto px-4 md:px-6 lg:px-8;
   }
@@ -115,6 +126,35 @@
 
       .pop-overs button {
         @apply bg-white;
+      }
+    }
+  }
+
+  .home-page {
+    .con {
+      @apply relative
+      before:left-0
+      before:right-0 
+      before:h-5/6
+      md:before:h-4/6
+      before:bg-[#9538E2]
+      before:absolute
+      before:-z-10
+      before:rounded-es-xl
+      before:rounded-ee-xl;
+    }
+
+    .banner {
+      @apply mt-6
+      md:mt-12;
+      figure {
+        @apply w-10/12
+        p-2
+        rounded-md overflow-hidden bg-slate-100/45 border-2 md:w-8/12  aspect-video md:rounded-3xl md:p-6;
+
+        img {
+          @apply rounded-md;
+        }
       }
     }
   }

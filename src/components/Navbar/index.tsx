@@ -17,7 +17,7 @@ const Navbar = () => {
   const isHome = location.pathname === '/'
 
   return (
-    <div className={`con nav-con ${isHome && 'home'}`}>
+    <div className={`con nav-con ${isHome && 'home'} md:mt-8`}>
       <nav className='flex gap-8 items-center justify-between '>
         <NavLink to='/' className='logo  order-1'>
           <h1 className='font-bold text-xl'>Gadget Heaven</h1>
