@@ -1,7 +1,8 @@
-
 const Cart = () => {
   return (
-    <div>Cart</div>
+    <section>
+      <div className='con py-12'>cart</div>
+    </section>
   )
 }
 
