@@ -131,7 +131,7 @@
   }
 
   .home-page {
-    .con {
+    .hero .con {
       @apply relative
       before:left-0
       before:right-0 
