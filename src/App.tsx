@@ -1,6 +1,8 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import Cart from './components/Cart'
 import Wishlist from './components/Wishlist'
+import CartContextProvider from './context/CartContextProvider'
+import WishlistContextProvider from './context/WishlistContextProvider'
 import RootLayout from './layouts/RootLayout'
 import Dashboard from './pages/Dashboard'
 import Home, { loader as homeDataLoader } from './pages/Home'
@@ -59,6 +61,14 @@ const router = createBrowserRouter([
   },
 ])
 
-const App = () => <RouterProvider router={router} />
+const App = () => {
+  return (
+    <CartContextProvider>
+      <WishlistContextProvider>
+        <RouterProvider router={router} />
+      </WishlistContextProvider>
+    </CartContextProvider>
+  )
+}
 
 export default App

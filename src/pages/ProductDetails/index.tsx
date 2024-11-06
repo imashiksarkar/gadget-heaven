@@ -1,15 +1,36 @@
-import ReactStars from 'react-rating-stars-component'
-
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { useCart } from '@/context/CartContextProvider'
+import { useWishlist } from '@/context/WishlistContextProvider'
 import { fetchProductById } from '@/services/productService'
+import ReactStars from 'react-rating-stars-component'
 import { Params, useLoaderData } from 'react-router-dom'
 
 const ProductDetails = () => {
   const product = useLoaderData() as Awaited<ReturnType<typeof loader>>
-  console.log(product)
-
   if (!product) throw new Error('Invalid product id.')
+
+  const { addToCart } = useCart()
+  const { addToWishlist } = useWishlist()
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      description: product.description,
+      image: product.image,
+      price: product.price,
+    })
+  }
+  const handleAddToWishlist = () => {
+    addToWishlist({
+      id: product.id,
+      name: product.name,
+      description: product.description,
+      image: product.image,
+      price: product.price,
+    })
+  }
 
   return (
     <section>
@@ -41,7 +62,7 @@ const ProductDetails = () => {
 
             <div>
               <p>Rating: ⭐</p>
-              <p className='flex items-center gap-4'>
+              <span className='flex items-center gap-4'>
                 <ReactStars
                   count={5}
                   size={25}
@@ -53,11 +74,12 @@ const ProductDetails = () => {
                 <Badge className='text-md bg-slate-200 text-slate-800'>
                   {product.rating}
                 </Badge>
-              </p>
+              </span>
             </div>
 
             <div>
               <Button
+                onClick={handleAddToCart}
                 variant={'outline'}
                 className='rounded-full bg-[#8934CF] hover:bg-[#8934CF] hover:text-white text-white text-xl font-bold me-6'
               >
@@ -70,6 +92,7 @@ const ProductDetails = () => {
                 />
               </Button>
               <Button
+                onClick={handleAddToWishlist}
                 variant={'outline'}
                 className='rounded-full p-2 aspect-square  text-slate-800 text-xl font-bold'
               >

@@ -1,5 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
+import { useCart } from '@/context/CartContextProvider'
+import { useWishlist } from '@/context/WishlistContextProvider'
 import { NavLink, useLocation } from 'react-router-dom'
 import { Badge } from '../ui/badge'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '../ui/hover-card'
@@ -73,6 +75,13 @@ const NavLinks = (prop: Record<string, string>) => {
   )
 }
 const PopOver = (prop: Record<string, string>) => {
+  const { wishlist } = useWishlist()
+  const { cart, totalQty } = useCart()
+
+  const cartProductIds = Object.keys(cart)
+  const wishlistProductIds = Object.keys(wishlist)
+  const wishlistQty = wishlistProductIds.length
+
   return (
     <div {...prop}>
       <ul className='pop-overs flex items-center gap-8'>
@@ -90,14 +99,25 @@ const PopOver = (prop: Record<string, string>) => {
                   </Avatar>
                 </Button>
                 <Badge variant='default' className='absolute -top-1 -right-2'>
-                  10
+                  {totalQty}
                 </Badge>
               </div>
             </HoverCardTrigger>
-            <HoverCardContent className='hidden md:block'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Temporibus minus vel dolor quisquam consequuntur ipsa laudantium,
-              deleniti voluptas aliquid dolorum.
+            <HoverCardContent
+              className={totalQty > 0 ? 'hidden md:block w-auto' : 'hidden'}
+            >
+              <ul>
+                {cartProductIds.map((productId) => (
+                  <li
+                    key={cart[productId].id}
+                    className='flex gap-6 items-center justify-between text-nowrap mt-2'
+                  >
+                    <span>{cart[productId].name}</span>
+                    <span className='ml-auto'>X</span>
+                    <span>{cart[productId].qty}</span>
+                  </li>
+                ))}
+              </ul>
             </HoverCardContent>
           </HoverCard>
         </li>
@@ -115,14 +135,23 @@ const PopOver = (prop: Record<string, string>) => {
                   </Avatar>
                 </Button>
                 <Badge variant='default' className='absolute -top-1 -right-2'>
-                  10
+                  {wishlistQty}
                 </Badge>
               </div>
             </HoverCardTrigger>
-            <HoverCardContent className='hidden md:block'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Temporibus minus vel dolor quisquam consequuntur ipsa laudantium,
-              deleniti voluptas aliquid dolorum.
+            <HoverCardContent
+              className={wishlistQty > 0 ? 'hidden md:block w-auto' : 'hidden'}
+            >
+              <ul>
+                {wishlistProductIds.map((productId) => (
+                  <li
+                    key={wishlist[productId].id}
+                    className='flex gap-6 items-center justify-between text-nowrap mt-2'
+                  >
+                    {wishlist[productId].name}
+                  </li>
+                ))}
+              </ul>
             </HoverCardContent>
           </HoverCard>
         </li>
