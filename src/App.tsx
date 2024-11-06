@@ -6,7 +6,7 @@ import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Order from './pages/Order'
-import Statistics from './pages/Statistics'
+import Statistics, { loader as statisticsDataLoader } from './pages/Statistics'
 
 const router = createBrowserRouter([
   {
@@ -31,6 +31,7 @@ const router = createBrowserRouter([
       {
         path: '/statistics',
         element: <Statistics />,
+        loader: statisticsDataLoader,
       },
       {
         path: '/dashboard',
