@@ -1,0 +1,176 @@
+[
+  {
+    "id": "lap-001",
+    "name": "Dell XPS 13",
+    "description": "Compact and powerful laptop with InfinityEdge display and Intel Core i7.",
+    "image": "banner.jpg",
+    "price": 999.99,
+    "stock": 15,
+    "specifications": [
+      "13.3 inch FHD",
+      "Intel Core i7",
+      "16GB RAM",
+      "512GB SSD"
+    ],
+    "rating": 4.7
+  },
+  {
+    "id": "lap-002",
+    "name": "Apple MacBook Air M2",
+    "description": "Lightweight MacBook with powerful M2 chip and impressive battery life.",
+    "image": "banner.jpg",
+    "price": 1199.99,
+    "stock": 20,
+    "specifications": ["13.6 inch Retina", "Apple M2", "8GB RAM", "256GB SSD"],
+    "rating": 4.8
+  },
+  {
+    "id": "lap-003",
+    "name": "HP Spectre x360",
+    "description": "2-in-1 convertible laptop with a stunning design and solid performance.",
+    "image": "banner.jpg",
+    "price": 1049.99,
+    "stock": 10,
+    "specifications": [
+      "13.3 inch OLED",
+      "Intel Core i5",
+      "8GB RAM",
+      "512GB SSD"
+    ],
+    "rating": 4.5
+  },
+  {
+    "id": "phn-001",
+    "name": "iPhone 14 Pro",
+    "description": "Apple's latest iPhone with A16 Bionic chip and advanced camera system.",
+    "image": "banner.jpg",
+    "price": 999.99,
+    "stock": 30,
+    "specifications": ["6.1 inch OLED", "A16 Bionic", "128GB Storage"],
+    "rating": 4.9
+  },
+  {
+    "id": "phn-002",
+    "name": "Samsung Galaxy S23",
+    "description": "Flagship Samsung phone with stunning AMOLED display and high-performance camera.",
+    "image": "banner.jpg",
+    "price": 849.99,
+    "stock": 25,
+    "specifications": [
+      "6.2 inch AMOLED",
+      "Snapdragon 8 Gen 2",
+      "128GB Storage"
+    ],
+    "rating": 4.8
+  },
+  {
+    "id": "phn-003",
+    "name": "Google Pixel 8",
+    "description": "Google's latest smartphone with clean Android experience and great camera.",
+    "image": "banner.jpg",
+    "price": 699.99,
+    "stock": 18,
+    "specifications": ["6.1 inch OLED", "Google Tensor G2", "128GB Storage"],
+    "rating": 4.6
+  },
+  {
+    "id": "acc-001",
+    "name": "Anker PowerCore 10000",
+    "description": "Compact power bank with 10000mAh capacity for quick charging.",
+    "image": "banner.jpg",
+    "price": 29.99,
+    "stock": 50,
+    "specifications": ["10000mAh", "Fast Charging", "Compact Design"],
+    "rating": 4.5
+  },
+  {
+    "id": "acc-002",
+    "name": "JBL Flip 6",
+    "description": "Portable Bluetooth speaker with waterproof design and excellent sound.",
+    "image": "banner.jpg",
+    "price": 99.99,
+    "stock": 35,
+    "specifications": ["Bluetooth 5.1", "Waterproof", "12 hours playtime"],
+    "rating": 4.7
+  },
+  {
+    "id": "acc-003",
+    "name": "Logitech MX Master 3S",
+    "description": "Advanced wireless mouse with customizable buttons and ergonomic design.",
+    "image": "banner.jpg",
+    "price": 89.99,
+    "stock": 40,
+    "specifications": ["Ergonomic Design", "Bluetooth", "Customizable Buttons"],
+    "rating": 4.8
+  },
+  {
+    "id": "sw-001",
+    "name": "Apple Watch Series 9",
+    "description": "Advanced health and fitness tracker with ECG and blood oxygen monitoring.",
+    "image": "banner.jpg",
+    "price": 399.99,
+    "stock": 25,
+    "specifications": ["GPS", "ECG", "Blood Oxygen Monitoring"],
+    "rating": 4.9
+  },
+  {
+    "id": "sw-002",
+    "name": "Samsung Galaxy Watch 6",
+    "description": "Stylish smartwatch with advanced health features and long battery life.",
+    "image": "banner.jpg",
+    "price": 329.99,
+    "stock": 20,
+    "specifications": ["GPS", "Heart Rate Monitor", "Sleep Tracking"],
+    "rating": 4.6
+  },
+  {
+    "id": "sw-003",
+    "name": "Garmin Forerunner 265",
+    "description": "Fitness-focused smartwatch for serious athletes with GPS tracking.",
+    "image": "banner.jpg",
+    "price": 499.99,
+    "stock": 15,
+    "specifications": ["GPS", "VO2 Max", "Pulse Ox"],
+    "rating": 4.7
+  },
+  {
+    "id": "mac-001",
+    "name": "MacBook Pro 14-inch M2 Pro",
+    "description": "High-performance laptop with M2 Pro chip for professionals and creators.",
+    "image": "banner.jpg",
+    "price": 1999.99,
+    "stock": 10,
+    "specifications": [
+      "14 inch Liquid Retina XDR",
+      "Apple M2 Pro",
+      "16GB RAM",
+      "512GB SSD"
+    ],
+    "rating": 4.9
+  },
+  {
+    "id": "mac-002",
+    "name": "MacBook Pro 16-inch M2 Max",
+    "description": "Powerful MacBook for the most demanding tasks with large Retina display.",
+    "image": "banner.jpg",
+    "price": 2499.99,
+    "stock": 5,
+    "specifications": [
+      "16 inch Liquid Retina XDR",
+      "Apple M2 Max",
+      "32GB RAM",
+      "1TB SSD"
+    ],
+    "rating": 4.9
+  },
+  {
+    "id": "mac-003",
+    "name": "MacBook Air M1",
+    "description": "Affordable and efficient MacBook with M1 chip for everyday tasks.",
+    "image": "banner.jpg",
+    "price": 899.99,
+    "stock": 15,
+    "specifications": ["13.3 inch Retina", "Apple M1", "8GB RAM", "256GB SSD"],
+    "rating": 4.7
+  }
+]

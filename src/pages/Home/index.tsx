@@ -1,25 +1,16 @@
-import ProductCard, { type ProductCardProps } from '@/components/ProductCard'
+import ProductCard from '@/components/ProductCard'
 import { Button } from '@/components/ui/button'
-import { Link } from 'react-router-dom'
-
-const categories = [
-  'All Product',
-  'Iphone',
-  'MacBook',
-  'Smart Watches',
-  'Accessories',
-  'Phones',
-  'Laptops',
-]
-
-const product: ProductCardProps = {
-  productId: 'aaaaaaaa',
-  title: 'Card Title',
-  description: 'Card Description',
-  image: 'banner.jpg',
-}
+import {
+  fetchCategoriesNames,
+  fetchProductsByCategory,
+} from '@/services/productService'
+import { Link, LoaderFunctionArgs, useLoaderData } from 'react-router-dom'
 
 const Home = () => {
+  const { categories, selectedCategory, products } = useLoaderData() as Awaited<
+    ReturnType<typeof loader>
+  >
+
   return (
     <div className='home-page'>
       <section className='hero'>
@@ -56,65 +47,66 @@ const Home = () => {
           </h1>
           <aside className='category bg-white border w-full rounded-lg p-6 h-max mb-10'>
             <ul>
-              {categories.map((category: string) => {
-                const categoryVal = category.replace(' ', '_').toLowerCase()
-
+              <li>
+                <Link
+                  to={`/`}
+                  className={`category-link block py-2 px-4 rounded-full mt-4 text-lg font-medium ${
+                    'all' === selectedCategory
+                      ? 'active bg-[#8E36D8] text-white'
+                      : 'bg-[#F3F3F3] text-[#67666A]'
+                  }`}
+                >
+                  All products
+                </Link>
+              </li>
+              {categories.map((category) => {
                 return (
-                  <li key={categoryVal} className=''>
+                  <li key={category.value}>
                     <Link
-                      to={`/?category=${categoryVal}`}
-                      className='bg-[#F3F3F3] block py-2 px-4 rounded-full mt-4 text-lg font-medium text-[#67666A]'
+                      to={`/?category=${category.value}`}
+                      className={`category-link block py-2 px-4 rounded-full mt-4 text-lg font-medium ${
+                        category.value === selectedCategory
+                          ? 'active bg-[#8E36D8] text-white'
+                          : 'bg-[#F3F3F3] text-[#67666A]'
+                      }`}
                     >
-                      {category}
+                      {category.name}
                     </Link>
                   </li>
                 )
               })}
             </ul>
           </aside>
-          <div className='products__list w-full grid grid-cols-[repeat(auto-fit,minmax(270px,_1fr))] gap-4 justify-items-center'>
-            <ProductCard
-              productId={product.productId}
-              title={product.title}
-              description={product.description}
-              image={product.image}
-            />
-            <ProductCard
-              productId={product.productId}
-              title={product.title}
-              // description={product.description}
-              description='lfasuihfsnyusagf asgdtdtaSC YWGDYUGTYDGCTSAFDtcc gysagdgygryuayga dg ygsdsd cgsdga'
-              image={product.image}
-            />
-            <ProductCard
-              productId={product.productId}
-              title={product.title}
-              description={product.description}
-              image={product.image}
-            />
-            <ProductCard
-              productId={product.productId}
-              title={product.title}
-              description={product.description}
-              image={product.image}
-            />
-            <ProductCard
-              productId={product.productId}
-              title={product.title}
-              description={product.description}
-              image={product.image}
-            />
-            <ProductCard
-              productId={product.productId}
-              title={product.title}
-              description={product.description}
-              image={product.image}
-            />
+          <div className='products__list w-full grid grid-cols-[repeat(auto-fit,minmax(295px,_1fr))] gap-4 justify-items-center'>
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                productId={product.id}
+                title={product.name}
+                description={product.description}
+                image={product.image}
+              />
+            ))}
           </div>
         </div>
       </section>
     </div>
   )
+}
+
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  const searchParams = new URL(request.url).searchParams
+  const selectedCategory = searchParams.get('category')?.trim() || 'all'
+
+  const products = await fetchProductsByCategory(selectedCategory)
+
+  const categories = await fetchCategoriesNames()
+
+  return {
+    products,
+    categories,
+    selectedCategory,
+  }
 }
 
 export default Home
