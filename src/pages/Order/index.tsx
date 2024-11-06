@@ -1,6 +1,11 @@
 import CartItem from '@/components/Cart/CartItem'
+import { fetchPurchasedProducts } from '@/services/purchaseService'
+import { useId } from 'react'
+import { useLoaderData } from 'react-router-dom'
 
 const Order = () => {
+  const products = useLoaderData() as ReturnType<typeof fetchPurchasedProducts>
+
   return (
     <section>
       <header className='bg-[#9538E2] py-8'>
@@ -14,16 +19,32 @@ const Order = () => {
 
       <div className='con mt-10'>
         <ul className='flex flex-col items-center gap-4'>
-          <li className='w-full flex justify-center'>
-            <CartItem />
-          </li>
-          <li className='w-full flex justify-center'>
-            <CartItem />
-          </li>
+          {products?.map((product) => {
+            const id = useId()
+
+            return (
+              <li
+                key={`${product.id}-${id}`}
+                className='w-full flex justify-center'
+              >
+                <CartItem
+                  id={product.id}
+                  name={product.name}
+                  description={product.description}
+                  image={product.image}
+                  price={product.price}
+                />
+              </li>
+            )
+          })}
         </ul>
       </div>
     </section>
   )
+}
+
+export const loader = () => {
+  return fetchPurchasedProducts()
 }
 
 export default Order

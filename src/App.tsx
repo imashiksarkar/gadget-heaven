@@ -7,7 +7,7 @@ import RootLayout from './layouts/RootLayout'
 import Dashboard from './pages/Dashboard'
 import Home, { loader as homeDataLoader } from './pages/Home'
 import NotFound from './pages/NotFound'
-import Order from './pages/Order'
+import Order, { loader as orderDataLoader } from './pages/Order'
 import ProductDetails, {
   loader as productDataLoader,
 } from './pages/ProductDetails'
@@ -56,6 +56,7 @@ const router = createBrowserRouter([
       {
         path: '/order',
         element: <Order />,
+        loader: orderDataLoader,
       },
     ],
   },

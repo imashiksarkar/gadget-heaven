@@ -2,9 +2,10 @@ import { useCart } from '@/context/CartContextProvider'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { Button } from '../ui/button'
 import CartItem from './CartItem'
+import { savePurchasedProducts } from '@/services/purchaseService'
 
 const Cart = () => {
-  const { cart, removeFromCart, totalPrice } = useCart()
+  const { cart, removeFromCart, totalPrice, resetCart } = useCart()
   const productIds = Object.keys(cart)
 
   const sortType = useSearchParams(useLocation().search)[0].get('sort')
@@ -23,6 +24,11 @@ const Cart = () => {
 
   const handleOnClose = (id: string) => {
     removeFromCart({ id })
+  }
+
+  const handlePurchaseClick = () => {
+    savePurchasedProducts(cart)
+    resetCart()
   }
 
   return (
@@ -46,6 +52,7 @@ const Cart = () => {
           </div>
           <Button
             variant={'ghost'}
+            onClick={handlePurchaseClick}
             className='rounded-full text-lg font-semibold border-2 text-white  bg-gradient-to-t from-[#E066E6] to-[#9532E5] w-max hover:text-slate-300 p-6'
           >
             Purchase

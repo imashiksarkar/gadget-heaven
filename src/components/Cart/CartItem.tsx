@@ -6,7 +6,7 @@ interface CartItemProp {
   image: string
   description: string
   price: number
-  onClose: (id: string) => void
+  onClose?: (id: string) => void
 }
 
 const CartItem = ({
@@ -18,7 +18,7 @@ const CartItem = ({
   onClose,
 }: CartItemProp) => {
   const handleRemoveFromCart = () => {
-    onClose(id)
+    onClose?.(id)
   }
 
   return (
@@ -33,13 +33,15 @@ const CartItem = ({
           Price: ${price}
         </span>
       </div>
-      <Button
-        onClick={handleRemoveFromCart}
-        variant={'ghost'}
-        className='rounded-full w-10 h-10 bg-slate-50/25 text-white absolute top-4 right-4 md:static md:border md:border-red-500 md:bg-transparent md:text-slate-900 md:ml-auto'
-      >
-        X
-      </Button>
+      {onClose && (
+        <Button
+          onClick={handleRemoveFromCart}
+          variant={'ghost'}
+          className='rounded-full w-10 h-10 bg-slate-50/25 text-white absolute top-4 right-4 md:static md:border md:border-red-500 md:bg-transparent md:text-slate-900 md:ml-auto'
+        >
+          X
+        </Button>
+      )}
     </div>
   )
 }
