@@ -6,6 +6,9 @@ import Dashboard from './pages/Dashboard'
 import Home, { loader as homeDataLoader } from './pages/Home'
 import NotFound from './pages/NotFound'
 import Order from './pages/Order'
+import ProductDetails, {
+  loader as productDataLoader,
+} from './pages/ProductDetails'
 import Statistics, { loader as statisticsDataLoader } from './pages/Statistics'
 
 const router = createBrowserRouter([
@@ -18,6 +21,12 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
         loader: homeDataLoader,
+      },
+      {
+        path: '/product/:productId',
+        element: <ProductDetails />,
+        errorElement: <h1>Err</h1>,
+        loader: productDataLoader,
       },
       {
         path: '/statistics',

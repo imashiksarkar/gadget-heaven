@@ -39,6 +39,7 @@ export const fetchCategoriesNames = async () => {
 
   return category
 }
+
 export const fetchProductsByCategory = async (categoryName: string) => {
   const categories = (await (
     await fetch('/db/categories.json')
@@ -54,11 +55,13 @@ export const fetchProductsByCategory = async (categoryName: string) => {
       productIdsForTheCategory.includes(product.id)
     )
 
-    // console.log();
-    
-
     return filteredProducts
   }
 
   return await fetchAllProducts()
+}
+
+export const fetchProductById = async (id: string) => {
+  const products = await fetchAllProducts()
+  return products.find((product) => product.id === id) || null
 }
