@@ -10,13 +10,19 @@ interface Product {
   rating: number
 }
 
+const productUri =
+  'https://res.cloudinary.com/imashiksarkar/raw/upload/v1730999568/ph-hosting/gadget-heaven/db/products_js5wui.json'
+
+const categoryUri =
+  'https://res.cloudinary.com/imashiksarkar/raw/upload/v1730999569/ph-hosting/gadget-heaven/db/categories_nodcvr.json'
+
 export const fetchAllProducts = async () => {
-  const res = await fetch('/db/products.json')
+  const res = await fetch(productUri)
   return (await res.json()) as Product[]
 }
 
 export const fetchCategoriesNames = async () => {
-  const res = await fetch('/db/categories.json')
+  const res = await fetch(categoryUri)
 
   const categoryKeys = Object.keys(await res.json())
 
@@ -42,9 +48,10 @@ export const fetchCategoriesNames = async () => {
 }
 
 export const fetchProductsByCategory = async (categoryName: string) => {
-  const categories = (await (
-    await fetch('/db/categories.json')
-  ).json()) as Record<string, string[]>
+  const categories = (await (await fetch(categoryUri)).json()) as Record<
+    string,
+    string[]
+  >
 
   const productIdsForTheCategory: string[] | null =
     categories[categoryName] || null

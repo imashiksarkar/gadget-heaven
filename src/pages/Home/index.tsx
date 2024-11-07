@@ -34,7 +34,7 @@ const Home = () => {
             <figure>
               <img
                 className='w-full h-full object-cover rounded-3xl'
-                src='/banner.jpg'
+                src='https://res.cloudinary.com/imashiksarkar/image/upload/v1730998882/ph-hosting/gadget-heaven/banner_g4peai.jpg'
                 alt='banner'
               />
             </figure>

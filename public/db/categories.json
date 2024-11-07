@@ -1,7 +1,0 @@
-{
-  "laptop": ["lap-001", "lap-002", "lap-003"],
-  "phone": ["phn-001", "phn-002", "phn-003"],
-  "accessories": ["acc-001", "acc-002", "acc-003"],
-  "smart_watches": ["sw-001", "sw-002", "sw-003"],
-  "macbook": ["mac-001", "mac-002", "mac-003"]
-}
