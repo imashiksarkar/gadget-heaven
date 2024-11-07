@@ -1,9 +1,10 @@
+import StarRatings from 'react-star-ratings'
+
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useCart } from '@/context/CartContextProvider'
 import { useWishlist } from '@/context/WishlistContextProvider'
 import { fetchProductById } from '@/services/productService'
-import ReactStars from 'react-rating-stars-component'
 import { Params, useLoaderData } from 'react-router-dom'
 import { useToast } from '@/hooks/use-toast'
 
@@ -58,8 +59,14 @@ const ProductDetails = () => {
           <div className='product__descriptions flex flex-col gap-4'>
             <h1 className='text-[28px] font-semibold'>{product.name}</h1>
             <p className='font-semibold text-xl'>Price: ${product.price}</p>
-            <Badge className='w-max bg-transparent border border-lime-500 text-lime-500 text-md font-semibold'>
-              In Stock
+            <Badge
+              className={`w-max bg-transparent border text-md font-semibold ${
+                product.inStock
+                  ? ' border-lime-500 text-lime-500'
+                  : ' border-red-500 text-red-500'
+              } `}
+            >
+              {product.inStock ? 'In Stock' : 'Out Of Stock'}
             </Badge>
             <p className='text-lg text-gray-500'>{product.description}</p>
 
@@ -75,14 +82,14 @@ const ProductDetails = () => {
             <div>
               <p>Rating: ⭐</p>
               <span className='flex items-center gap-4'>
-                <ReactStars
-                  count={5}
-                  size={25}
-                  isHalf={true}
-                  activeColor='#ffd700'
-                  value={product.rating}
+                <StarRatings
+                  rating={product.rating}
+                  starRatedColor='yellow'
+                  numberOfStars={5}
+                  name='rating'
+                  starSpacing='0px'
+                  starDimension='30px'
                 />
-
                 <Badge className='text-md bg-slate-200 text-slate-800'>
                   {product.rating}
                 </Badge>

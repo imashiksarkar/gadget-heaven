@@ -6,6 +6,7 @@
     "image": "/banner.jpg",
     "price": 999.99,
     "stock": 15,
+    "inStock": true,
     "specifications": [
       "13.3 inch FHD",
       "Intel Core i7",
@@ -30,6 +31,7 @@
     "description": "2-in-1 convertible laptop with a stunning design and solid performance.",
     "image": "/banner.jpg",
     "price": 1049.99,
+    "inStock": true,
     "stock": 10,
     "specifications": [
       "13.3 inch OLED",
@@ -45,6 +47,7 @@
     "description": "Apple's latest iPhone with A16 Bionic chip and advanced camera system.",
     "image": "/banner.jpg",
     "price": 999.99,
+    "inStock": true,
     "stock": 30,
     "specifications": ["6.1 inch OLED", "A16 Bionic", "128GB Storage"],
     "rating": 4.9
@@ -69,6 +72,7 @@
     "description": "Google's latest smartphone with clean Android experience and great camera.",
     "image": "/banner.jpg",
     "price": 699.99,
+    "inStock": true,
     "stock": 18,
     "specifications": ["6.1 inch OLED", "Google Tensor G2", "128GB Storage"],
     "rating": 4.6
@@ -89,6 +93,7 @@
     "description": "Portable Bluetooth speaker with waterproof design and excellent sound.",
     "image": "/banner.jpg",
     "price": 99.99,
+    "inStock": true,
     "stock": 35,
     "specifications": ["Bluetooth 5.1", "Waterproof", "12 hours playtime"],
     "rating": 4.7
@@ -109,6 +114,7 @@
     "description": "Advanced health and fitness tracker with ECG and blood oxygen monitoring.",
     "image": "/banner.jpg",
     "price": 399.99,
+    "inStock": true,
     "stock": 25,
     "specifications": ["GPS", "ECG", "Blood Oxygen Monitoring"],
     "rating": 4.9
@@ -139,6 +145,7 @@
     "description": "High-performance laptop with M2 Pro chip for professionals and creators.",
     "image": "/banner.jpg",
     "price": 1999.99,
+    "inStock": true,
     "stock": 10,
     "specifications": [
       "14 inch Liquid Retina XDR",
@@ -169,6 +176,7 @@
     "description": "Affordable and efficient MacBook with M1 chip for everyday tasks.",
     "image": "/banner.jpg",
     "price": 899.99,
+    "inStock": true,
     "stock": 15,
     "specifications": ["13.3 inch Retina", "Apple M1", "8GB RAM", "256GB SSD"],
     "rating": 4.7

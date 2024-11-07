@@ -5,6 +5,7 @@ interface Product {
   image: string
   price: number
   stock: number
+  inStock?: boolean
   specifications: string[]
   rating: number
 }
