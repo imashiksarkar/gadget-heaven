@@ -11,7 +11,7 @@ const Footer = () => {
           </p>
         </header>
 
-        <section className='links grid grid-cols-1 md:grid-cols-3 justify-items-center mt-8 text-gray-500'>
+        <section className='links grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:justify-items-center mt-8 text-gray-500'>
           <div className='support'>
             <h4 className='text-lg font-bold text-slate-900'>Services</h4>
             <ul className='mt-4 flex flex-col gap-2'>
