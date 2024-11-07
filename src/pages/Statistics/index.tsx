@@ -1,3 +1,4 @@
+import { fetchOrderDataForChart } from '@/services/purchaseService'
 import { getRandomHexColor } from '@/utils/getRandomHexColor'
 import { useLoaderData } from 'react-router-dom'
 import {
@@ -48,17 +49,17 @@ const Statistics = () => {
               }}
             />
             <YAxis
-              dataKey='qty'
+              dataKey='price'
               label={{
-                value: 'Units Bought',
+                value: 'Total Spent',
                 angle: -90,
                 position: 'insideLeft',
               }}
             />
             <Tooltip />
-            <Bar dataKey='qty'>
-              {data.map((item, index) => (
-                <Cell key={`cell-${index}`} fill={item.color} />
+            <Bar dataKey='price'>
+              {data.map((_item, index) => (
+                <Cell key={`cell-${index}`} fill={getRandomHexColor()} />
               ))}
             </Bar>
           </BarChart>
@@ -69,65 +70,7 @@ const Statistics = () => {
 }
 
 export const loader = () => {
-  const data = [
-    {
-      name: 'Mobile',
-      qty: 5,
-      color: getRandomHexColor(),
-    },
-    {
-      name: 'Gun',
-      qty: 7,
-      color: getRandomHexColor(),
-    },
-    {
-      name: 'Gun',
-      qty: 7,
-      color: getRandomHexColor(),
-    },
-    {
-      name: 'Gun',
-      qty: 7,
-      color: getRandomHexColor(),
-    },
-    {
-      name: 'Gun',
-      qty: 7,
-      color: getRandomHexColor(),
-    },
-    {
-      name: 'Gun',
-      qty: 7,
-      color: getRandomHexColor(),
-    },
-    {
-      name: 'Gun',
-      qty: 7,
-      color: getRandomHexColor(),
-    },
-    {
-      name: 'Gun',
-      qty: 7,
-      color: getRandomHexColor(),
-    },
-    {
-      name: 'Geeta',
-      qty: 100,
-      color: getRandomHexColor(),
-    },
-    {
-      name: 'Cycle',
-      qty: 17,
-      color: getRandomHexColor(),
-    },
-    {
-      name: 'Bike',
-      qty: 30,
-      color: getRandomHexColor(),
-    },
-  ]
-
-  return data
+  return fetchOrderDataForChart()
 }
 
 export default Statistics

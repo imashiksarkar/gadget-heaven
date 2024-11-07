@@ -33,3 +33,26 @@ export const savePurchasedProducts = (
 
   localStorage.setItem(purchaseKey, JSON.stringify(products))
 }
+
+export const fetchOrderDataForChart = () => {
+  const orderedProducts = fetchPurchasedProducts()
+
+  const productObj = orderedProducts.reduce((prev, current) => {
+    const existingPriceForTheProduct = prev[current.name] || 0
+
+    const price = parseFloat(
+      (current.qty * current.price + existingPriceForTheProduct).toFixed(2)
+    )
+
+    prev[current.name] = price
+
+    return prev
+  }, {} as { [productName: string]: number })
+
+  const products = Object.entries(productObj).map((product) => ({
+    name: product[0],
+    price: product[1],
+  }))
+
+  return products
+}
