@@ -23,9 +23,9 @@ const Statistics = () => {
         <div className='con flex flex-col items-center text-white'>
           <h1 className='text-3xl font-bold'>Statistics</h1>
           <p className='mt-2 max-w-[65ch] text-center leading-7'>
-            Explore the latest gadgets that will take your experience to the
-            next level. From smart devices to the coolest accessories, we have
-            it all!
+            Dive into insights on the latest tech trends and popular gadgets.
+            See which smart devices and accessories are making waves and find
+            out what's enhancing user experiences worldwide!
           </p>
         </div>
       </header>

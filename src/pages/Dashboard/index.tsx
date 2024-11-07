@@ -10,9 +10,9 @@ const Dashboard = () => {
         <div className='con flex flex-col items-center text-white'>
           <h1 className='text-3xl font-bold'>Dashboard</h1>
           <p className='mt-2 max-w-[65ch] text-center leading-7'>
-            Explore the latest gadgets that will take your experience to the
-            next level. From smart devices to the coolest accessories, we have
-            it all!
+            Discover and explore the latest gadgets all in one place. From
+            cutting-edge smart devices to top accessories, find everything you
+            need to upgrade your experience and stay ahead in tech!
           </p>
 
           <ul className='btn-group flex gap-8 mt-8'>

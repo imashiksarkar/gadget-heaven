@@ -19,9 +19,9 @@ const Home = () => {
               Upgrade Your Tech Accessorize with Gadget Heaven Accessories
             </h1>
             <p className='mt-6 leading-6 max-w-[65ch]'>
-              Explore the latest gadgets that will take your experience to the
-              next level. From smart devices to the coolest accessories, we have
-              it all!
+              Discover the newest gadgets and accessories designed to elevate
+              your tech experience. From innovative smart devices to stylish and
+              functional accessories, find everything you need.
             </p>
             <a
               href='/#shop'
