@@ -1,12 +1,21 @@
+import { useCart } from '@/context/CartContextProvider'
 import { useWishlist } from '@/context/WishlistContextProvider'
-import CartItem from '../Cart/CartItem'
+import WishlistItem from './WishlistItem'
 
 const Wishlist = () => {
+  const { addToCart } = useCart()
   const { wishlist, removeFromWishlist } = useWishlist()
 
   const handleOnClose = (id: string) => {
     removeFromWishlist({
       id,
+    })
+  }
+
+  const handleAddToCart = (product: Parameters<typeof addToCart>[0]) => {
+    addToCart(product)
+    removeFromWishlist({
+      id: product.id,
     })
   }
 
@@ -27,13 +36,14 @@ const Wishlist = () => {
 
             return (
               <li key={id} className='w-full flex justify-center'>
-                <CartItem
+                <WishlistItem
                   id={id}
                   name={name}
                   description={description}
                   image={image}
                   price={price}
                   onClose={handleOnClose}
+                  onAddToCart={handleAddToCart}
                 />
               </li>
             )
