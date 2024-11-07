@@ -4,9 +4,10 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useCart } from '@/context/CartContextProvider'
 import { useWishlist } from '@/context/WishlistContextProvider'
+import { useToast } from '@/hooks/use-toast'
 import { fetchProductById } from '@/services/productService'
 import { Params, useLoaderData } from 'react-router-dom'
-import { useToast } from '@/hooks/use-toast'
+import { useEffect } from 'react'
 
 const ProductDetails = () => {
   const { toast } = useToast()
@@ -16,6 +17,10 @@ const ProductDetails = () => {
 
   const { addToCart } = useCart()
   const { addToWishlist } = useWishlist()
+
+  useEffect(() => {
+    document.title = product.name
+  }, [product.name])
 
   const handleAddToCart = () => {
     addToCart({
