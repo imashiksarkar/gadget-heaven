@@ -1,6 +1,7 @@
 import { useCart } from '@/context/CartContextProvider'
 import { useWishlist } from '@/context/WishlistContextProvider'
 import WishlistItem from './WishlistItem'
+import NoProducts from '../NoProducts'
 
 const Wishlist = () => {
   const { addToCart } = useCart()
@@ -29,27 +30,32 @@ const Wishlist = () => {
         </header>
       </div>
 
-      <div className='con'>
-        <ul className='flex flex-col items-center gap-4'>
-          {productKeys.map((productId: string) => {
-            const { id, name, description, image, price } = wishlist[productId]
+      {productKeys.length > 0 ? (
+        <div className='con'>
+          <ul className='flex flex-col items-center gap-4'>
+            {productKeys.map((productId: string) => {
+              const { id, name, description, image, price } =
+                wishlist[productId]
 
-            return (
-              <li key={id} className='w-full flex justify-center'>
-                <WishlistItem
-                  id={id}
-                  name={name}
-                  description={description}
-                  image={image}
-                  price={price}
-                  onClose={handleOnClose}
-                  onAddToCart={handleAddToCart}
-                />
-              </li>
-            )
-          })}
-        </ul>
-      </div>
+              return (
+                <li key={id} className='w-full flex justify-center'>
+                  <WishlistItem
+                    id={id}
+                    name={name}
+                    description={description}
+                    image={image}
+                    price={price}
+                    onClose={handleOnClose}
+                    onAddToCart={handleAddToCart}
+                  />
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      ) : (
+        <NoProducts />
+      )}
     </section>
   )
 }

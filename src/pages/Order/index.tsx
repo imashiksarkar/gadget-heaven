@@ -5,8 +5,6 @@ import { useLoaderData } from 'react-router-dom'
 
 const Order = () => {
   const products = useLoaderData() as ReturnType<typeof fetchPurchasedProducts>
-  console.log(products);
-  
 
   return (
     <section>
@@ -14,7 +12,9 @@ const Order = () => {
         <div className='con flex flex-col items-center text-white'>
           <h1 className='text-3xl font-bold'>Your Orders</h1>
           <p className='mt-2 max-w-[65ch] text-center leading-7'>
-          Below, you'll find a comprehensive list of all items you've ordered throughout the history of your account. This includes every product, and relevant details associated with each order.
+            Below, you'll find a comprehensive list of all items you've ordered
+            throughout the history of your account. This includes every product,
+            and relevant details associated with each order.
           </p>
         </div>
       </header>
