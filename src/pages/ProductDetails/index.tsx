@@ -5,8 +5,11 @@ import { useWishlist } from '@/context/WishlistContextProvider'
 import { fetchProductById } from '@/services/productService'
 import ReactStars from 'react-rating-stars-component'
 import { Params, useLoaderData } from 'react-router-dom'
+import { useToast } from '@/hooks/use-toast'
 
 const ProductDetails = () => {
+  const { toast } = useToast()
+
   const product = useLoaderData() as Awaited<ReturnType<typeof loader>>
   if (!product) throw new Error('Invalid product id.')
 
@@ -21,6 +24,11 @@ const ProductDetails = () => {
       image: product.image,
       price: product.price,
     })
+
+    toast({
+      title: `${product.name} is added to cart.`,
+      description: `Cart price is increased by $${product.price}`,
+    })
   }
   const handleAddToWishlist = () => {
     addToWishlist({
@@ -29,6 +37,10 @@ const ProductDetails = () => {
       description: product.description,
       image: product.image,
       price: product.price,
+    })
+
+    toast({
+      title: `${product.name} is added to wishlist.`,
     })
   }
 

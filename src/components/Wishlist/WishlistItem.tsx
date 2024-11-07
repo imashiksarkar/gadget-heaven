@@ -1,3 +1,4 @@
+import { useToast } from '@/hooks/use-toast'
 import { Button } from '../ui/button'
 
 interface Product {
@@ -22,6 +23,8 @@ const WishlistItem = ({
   onClose,
   onAddToCart,
 }: WishlistItemProp) => {
+  const { toast } = useToast()
+
   const handleRemoveFromWishlist = () => {
     onClose?.(id)
   }
@@ -32,6 +35,10 @@ const WishlistItem = ({
       description,
       image,
       price,
+    })
+    toast({
+      title: `${name} is added to cart.`,
+      description: `Cart price is increased by $${price}`,
     })
   }
 
