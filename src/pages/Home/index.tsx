@@ -1,5 +1,4 @@
 import ProductCard from '@/components/ProductCard'
-import { Button } from '@/components/ui/button'
 import {
   fetchCategoriesNames,
   fetchProductsByCategory,
@@ -24,9 +23,12 @@ const Home = () => {
               next level. From smart devices to the coolest accessories, we have
               it all!
             </p>
-            <Button className='w-max mt-8 rounded-full bg-white text-[#9137DC] font-bold text-xl'>
+            <a
+              href='/#shop'
+              className='w-max px-4 py-2 mt-8 rounded-full bg-white text-[#9137DC] font-bold text-xl'
+            >
               Shop Now
-            </Button>
+            </a>
           </header>
           <div className='banner flex justify-center'>
             <figure>
@@ -40,7 +42,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className='products mt-24'>
+      <section className='products mt-24' id='shop'>
         <div className='con grid grid-cols-1 md:grid-cols-[minmax(230px,_2fr)_10fr] justify-items-center gap-4'>
           <h1 className='md:col-span-2 mb-10 text-4xl font-bold'>
             Explore Cutting-Edge Gadgets
