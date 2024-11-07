@@ -163,8 +163,12 @@ const NavDrawer = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <span className='hamburger-icon  w-10 rounded-md aspect-square flex items-center justify-center'>
-          =
+        <span className='hamburger-icon  w-10 rounded-md aspect-square flex items-center justify-between flex-col p-2'>
+          <img
+            className='w-full aspect-square'
+            src='/hamburger-icon.png'
+            alt='hamburger'
+          />
         </span>
       </SheetTrigger>
       <SheetContent>
