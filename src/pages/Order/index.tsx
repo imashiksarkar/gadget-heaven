@@ -5,6 +5,8 @@ import { useLoaderData } from 'react-router-dom'
 
 const Order = () => {
   const products = useLoaderData() as ReturnType<typeof fetchPurchasedProducts>
+  console.log(products);
+  
 
   return (
     <section>
