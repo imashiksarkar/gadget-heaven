@@ -1,50 +1,31 @@
-# React + TypeScript + Vite
+# [Gadget Heaven](https://gh.ashiksarkar.xyz) - One-stop solution for your favorite gadgets.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Gadget Heaven:** serves as a centralized platform to explore, review, and compare popular electronic gadgets. It offers detailed descriptions, specifications, and reviews, aimed at helping users make informed purchase decisions. Visit [Gadget Heaven](https://gh.ashiksarkar.xyz) for more.
 
-Currently, two official plugins are available:
+### Used Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Recharts:** A composable charting library built on React, ideal for creating interactive, data-driven visualizations like bar charts, line charts, and pie charts to analyze gadget statistics.
 
-## Expanding the ESLint configuration
+- **Context API:** A React feature for state management, enabling efficient data sharing across components without excessive prop drilling, streamlining user preferences or authentication data.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Shadcn UI:** A collection of accessible, customizable components built with ShadCN, ensuring cohesive and elegant UI elements that align with modern design standards.
 
-- Configure the top-level `parserOptions` property like this:
+- **Tailwind CSS:** A utility-first CSS framework that facilitates rapid and responsive styling with a modern, minimalistic design for a consistent look across the site.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Data management
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Cart & Wishlist:** React Context API is used to manage data for cart and wishlist. Different context is used for managing cart and wishlist individually.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Orders & Statistics:** Local storage is used to manage order and statistical data. On purchase, the order data is stored in the local storage. To visualize the orders, the order data is fetched from the local storage and put into a chart for visualization.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Five Key Features
+
+1. **Explore Categorized Gadgets:** Users can browse gadgets organized by categories, making it easy to find specific types of devices (e.g., smartphones, laptops, or accessories).
+
+1. **Detailed View of a Gadget:** Each gadget includes an in-depth view with comprehensive details like specifications and user reviews.
+
+1. **Record of Orders:** A personalized order history feature allows users to track past purchases and order statuses.
+
+1. **Manage Cart & Wishlist:** Users can add gadgets to their cart or wishlist for future purchases or quick access.
+
+1. **Chart for Better Visualization:** Visual charts provide insights into purchased products and the total amount spent on that product to see the difference, enhancing the shopping experience with informative analytics.
